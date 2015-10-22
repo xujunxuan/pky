@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+    	<title>pkyJs</title>
+     
+
+        <script type="text/javascript" src="javascripts/vender/jquery.js" charset="utf-8"></script>
+    	<script type="text/javascript" src="javascripts/pky.js" charset="utf-8"></script>
+
+
+        <script>
+            $(function(){
+                $('h3').click(function(){
+                    // $(window).pky([{obj:["<h3>​Test​</h3>​","<h3>​Test​</h3>​","<h3>​Test​</h3>​","<h3>​Test​</h3>​","<h3>​Test​</h3>​"],rule:{lenth:">5",type:"num"},error:["less than 5 letters","isn`t number"]},{obj:["<h2>​Test​</h2>​", "<h2>​Test​</h2>​", "<h2>​Test​</h2>​"],rule:{lenth:"<4",type:"letter"},error:["more than 4 letters","isn`t letter"]}].join(","));
+
+                    $(window).pky([{obj:["<h3>​Test​</h3>​","<h3>​Test​</h3>​","<h3>​Test​</h3>​","<h3>​Test​</h3>​","<h3>​Test​</h3>​"],rule:{length:">5",type:"num"},error:["less than 5 letters","isn`t number"]},{obj:["<h2>​Test​</h2>​", "<h2>​Test​</h2>​", "<h2>​Test​</h2>​"],rule:{length:"<4",type:"letter"},error:["more than 4 letters","isn`t letter"]}]);
+                    
+                });
+
+                $("#input1").blur(function(){
+                        $("#input1").pkyOne({rule:{length:"<4",type:"letter"},error:["more than 4 letters","isn`t letter"]});
+                });
+
+                $("#input2").blur(function(){
+                        $("#input2").pky([{obj:[$("#input1").val(),$("#input2").val(),"123123123123"],rule:{length:"<4",type:"letter"},error:["more than 4 letters","isn`t letter"]}]);
+                });
+            });
+            
+            // $(function(){$("#input1").alertWhileClick();})
+        </script>
+    </head>
+
+    <body>
+        <h3>Test</h3>
+        <input type="password" id="input1" class="inp" placeholder="1"></input>
+        <input type="password" id="input2" class="inp" placeholder="2"></input>
+    </body>
+</html>
